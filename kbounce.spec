@@ -5,22 +5,22 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kbounce
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kbounce-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kbounce-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kbounce-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kbounce-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kbounce-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kbounce-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
-Requires: kbounce-bin
-Requires: kbounce-data
-Requires: kbounce-license
-Requires: kbounce-locales
+Requires: kbounce-bin = %{version}-%{release}
+Requires: kbounce-data = %{version}-%{release}
+Requires: kbounce-license = %{version}-%{release}
+Requires: kbounce-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : libkdegames-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -28,8 +28,8 @@ No detailed description available
 %package bin
 Summary: bin components for the kbounce package.
 Group: Binaries
-Requires: kbounce-data
-Requires: kbounce-license
+Requires: kbounce-data = %{version}-%{release}
+Requires: kbounce-license = %{version}-%{release}
 
 %description bin
 bin components for the kbounce package.
@@ -68,27 +68,27 @@ locales components for the kbounce package.
 
 
 %prep
-%setup -q -n kbounce-18.08.0
+%setup -q -n kbounce-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535227436
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549863061
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535227436
+export SOURCE_DATE_EPOCH=1549863061
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kbounce
-cp COPYING %{buildroot}/usr/share/doc/kbounce/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kbounce/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/kbounce/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kbounce
+cp COPYING %{buildroot}/usr/share/package-licenses/kbounce/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kbounce/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kbounce/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -132,6 +132,7 @@ popd
 /usr/share/kbounce/themes/the_beach.svgz
 /usr/share/kbounce/themes/thebeach_preview.png
 /usr/share/kxmlgui5/kbounce/kbounceui.rc
+/usr/share/metainfo/org.kde.kbounce.appdata.xml
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -178,10 +179,10 @@ popd
 /usr/share/doc/HTML/uk/kbounce/kbounce_corridor2.png
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kbounce/COPYING
-/usr/share/doc/kbounce/COPYING.DOC
-/usr/share/doc/kbounce/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kbounce/COPYING
+/usr/share/package-licenses/kbounce/COPYING.DOC
+/usr/share/package-licenses/kbounce/COPYING.LIB
 
 %files locales -f kbounce.lang
 %defattr(-,root,root,-)
