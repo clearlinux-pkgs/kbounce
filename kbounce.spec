@@ -6,11 +6,11 @@
 #
 Name     : kbounce
 Version  : 18.12.3
-Release  : 4
+Release  : 5
 URL      : https://download.kde.org/stable/applications/18.12.3/src/kbounce-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/kbounce-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/kbounce-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Summary  : A single player arcade game with the elements of puzzle
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
 Requires: kbounce-bin = %{version}-%{release}
@@ -75,16 +75,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551993571
+export SOURCE_DATE_EPOCH=1555323413
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551993571
+export SOURCE_DATE_EPOCH=1555323413
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kbounce
 cp COPYING %{buildroot}/usr/share/package-licenses/kbounce/COPYING
