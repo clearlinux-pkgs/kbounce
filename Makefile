@@ -1,5 +1,5 @@
 PKG_NAME := kbounce
-URL = https://download.kde.org/stable/release-service/19.12.3/src/kbounce-19.12.3.tar.xz
+URL = https://download.kde.org/stable/release-service/20.04.0/src/kbounce-20.04.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
