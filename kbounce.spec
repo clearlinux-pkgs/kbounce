@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kbounce
-Version  : 20.04.2
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kbounce-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kbounce-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kbounce-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kbounce-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kbounce-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kbounce-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -69,15 +69,15 @@ locales components for the kbounce package.
 
 
 %prep
-%setup -q -n kbounce-20.04.2
-cd %{_builddir}/kbounce-20.04.2
+%setup -q -n kbounce-20.08.0
+cd %{_builddir}/kbounce-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591906866
+export SOURCE_DATE_EPOCH=1597777114
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -89,16 +89,16 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591906866
+export SOURCE_DATE_EPOCH=1597777114
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kbounce
-cp %{_builddir}/kbounce-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kbounce/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kbounce-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kbounce/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/kbounce-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kbounce/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kbounce-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kbounce/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kbounce-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kbounce/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kbounce-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kbounce/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -166,21 +166,21 @@ popd
 /usr/share/doc/HTML/es/kbounce/index.docbook
 /usr/share/doc/HTML/et/kbounce/index.cache.bz2
 /usr/share/doc/HTML/et/kbounce/index.docbook
+/usr/share/doc/HTML/fr/kbounce/index.cache.bz2
+/usr/share/doc/HTML/fr/kbounce/index.docbook
+/usr/share/doc/HTML/fr/kbounce/jezball_corridor1.png
+/usr/share/doc/HTML/fr/kbounce/jezball_corridor2.png
+/usr/share/doc/HTML/fr/kbounce/jezball_newWall.png
 /usr/share/doc/HTML/it/kbounce/index.cache.bz2
 /usr/share/doc/HTML/it/kbounce/index.docbook
 /usr/share/doc/HTML/nl/kbounce/index.cache.bz2
 /usr/share/doc/HTML/nl/kbounce/index.docbook
 /usr/share/doc/HTML/pt/kbounce/index.cache.bz2
 /usr/share/doc/HTML/pt/kbounce/index.docbook
-/usr/share/doc/HTML/pt_BR/kbounce/button-new.png
-/usr/share/doc/HTML/pt_BR/kbounce/button-pause.png
 /usr/share/doc/HTML/pt_BR/kbounce/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kbounce/index.docbook
 /usr/share/doc/HTML/pt_BR/kbounce/kbounce_corridor1.png
 /usr/share/doc/HTML/pt_BR/kbounce/kbounce_corridor2.png
-/usr/share/doc/HTML/pt_BR/kbounce/menu-game.png
-/usr/share/doc/HTML/pt_BR/kbounce/menu-settings.png
-/usr/share/doc/HTML/pt_BR/kbounce/toolbar.png
 /usr/share/doc/HTML/sv/kbounce/index.cache.bz2
 /usr/share/doc/HTML/sv/kbounce/index.docbook
 /usr/share/doc/HTML/uk/kbounce/index.cache.bz2
