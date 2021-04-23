@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kbounce
-Version  : 20.12.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/kbounce-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/kbounce-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/kbounce-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/kbounce-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kbounce-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kbounce-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0 LGPL-2.0
+License  : GFDL-1.2 LGPL-2.0
 Requires: kbounce-bin = %{version}-%{release}
 Requires: kbounce-data = %{version}-%{release}
 Requires: kbounce-license = %{version}-%{release}
@@ -69,15 +69,15 @@ locales components for the kbounce package.
 
 
 %prep
-%setup -q -n kbounce-20.12.3
-cd %{_builddir}/kbounce-20.12.3
+%setup -q -n kbounce-21.04.0
+cd %{_builddir}/kbounce-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618661498
+export SOURCE_DATE_EPOCH=1619207112
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -93,12 +93,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618661498
+export SOURCE_DATE_EPOCH=1619207112
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kbounce
-cp %{_builddir}/kbounce-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/kbounce/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kbounce-20.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kbounce/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/kbounce-20.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kbounce/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kbounce-21.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kbounce/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/kbounce-21.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kbounce/a4c60b3fefda228cd7439d3565df043192fef137
 pushd clr-build
 %make_install
 popd
@@ -141,8 +140,8 @@ popd
 /usr/share/kbounce/themes/the_beach.desktop
 /usr/share/kbounce/themes/the_beach.svgz
 /usr/share/kbounce/themes/thebeach_preview.png
-/usr/share/kxmlgui5/kbounce/kbounceui.rc
 /usr/share/metainfo/org.kde.kbounce.appdata.xml
+/usr/share/qlogging-categories5/kbounce.categories
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -190,9 +189,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kbounce/4cc77b90af91e615a64ae04893fdffa7939db84c
-/usr/share/package-licenses/kbounce/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-/usr/share/package-licenses/kbounce/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+/usr/share/package-licenses/kbounce/7697008f58568e61e7598e796eafc2a997503fde
+/usr/share/package-licenses/kbounce/a4c60b3fefda228cd7439d3565df043192fef137
 
 %files locales -f kbounce.lang
 %defattr(-,root,root,-)
