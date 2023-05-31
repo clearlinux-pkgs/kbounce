@@ -7,7 +7,7 @@
 #
 Name     : kbounce
 Version  : 23.04.1
-Release  : 52
+Release  : 53
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/kbounce-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/kbounce-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/kbounce-23.04.1.tar.xz.sig
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684801287
+export SOURCE_DATE_EPOCH=1685563027
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +113,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684801287
+export SOURCE_DATE_EPOCH=1685563027
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kbounce
 cp %{_builddir}/kbounce-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kbounce/29fb05b49e12a380545499938c4879440bd8851e || :
